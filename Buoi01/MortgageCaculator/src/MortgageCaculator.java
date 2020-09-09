@@ -1,3 +1,5 @@
+import java.text.Format;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -16,10 +18,12 @@ public class MortgageCaculator {
 //      Gán lại dữ liệu bằng cách nhập dữ liệu qua console
         System.out.print("Enter loan amount: ");
         loanAmount = inputScanner.nextInt();
-        System.out.print("Enter loan period: ");
+        System.out.print("Enter loan period by year: ");
         loanPeriodByYear = inputScanner.nextInt();
-        System.out.print("Enter loan interest rate: ");
+        System.out.print("Enter loan interest rate by year: ");
         interestRateByYear = inputScanner.nextFloat();
+
+
 
 //        Tính toán và gán lại các dữ liệu cần có
         periodByMonth = loanPeriodByYear * 12;
