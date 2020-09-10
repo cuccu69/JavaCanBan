@@ -9,19 +9,42 @@ public class MortgageCaculator {
         Scanner inputScanner = new Scanner(System.in);//khai báo biến tên inputScanner có kiểu là Scanner. Biến inputScanner sẽ được nhập vào từ bàn phím (System.in)
         int loanAmount = 0;
         int loanPeriodByYear = 0;
-        float interestRateByYear = 0f;
-        float interestRateByMonth = 0f;
+        double interestRateByYear = 0;
+        double interestRateByMonth = 0;
         double mortgage = 0;
         double periodByMonth = 0;
 
 
 //      Gán lại dữ liệu bằng cách nhập dữ liệu qua console
         System.out.print("Enter loan amount: ");
-        loanAmount = inputScanner.nextInt();//biến inputScanner nhập giá trị vào từ màn hình, ở đây nhập kiểu Int
+        do {
+            System.out.println("Please enter a positive number!");
+            while (!inputScanner.hasNextInt()) {
+                System.out.println("This is not a number");
+                inputScanner.next();
+            }
+            loanAmount = inputScanner.nextInt();//biến inputScanner nhập giá trị vào từ màn hình, ở đây nhập kiểu Int
+        } while (loanAmount <= 0);
+
         System.out.print("Enter loan period by year: ");
-        loanPeriodByYear = inputScanner.nextInt();//biến inputScanner nhập giá trị vào từ màn hình, ở đây nhập kiểu Int
+        do {
+            System.out.println("Please enter a positive number!");
+            while (!inputScanner.hasNextInt()) {
+                System.out.println("This is not a number");
+                inputScanner.next();
+            }
+            loanPeriodByYear = inputScanner.nextInt();//biến inputScanner nhập giá trị vào từ màn hình, ở đây nhập kiểu Int
+        } while (loanPeriodByYear <= 0);
+
         System.out.print("Enter loan interest rate by year: ");
-        interestRateByYear = inputScanner.nextFloat();//biến inputScanner nhập giá trị vào từ màn hình, ở đây nhập kiểu Float
+        do {
+            System.out.println("Please enter a positive number!");
+            while (!inputScanner.hasNextDouble()) {
+                System.out.println("This is not a number");
+                inputScanner.next();
+            }
+            interestRateByYear = inputScanner.nextFloat();//biến inputScanner nhập giá trị vào từ màn hình, ở đây nhập kiểu Float
+        } while (interestRateByYear <= 0);
 
 
 //        Tính toán và gán lại các dữ liệu cần có
