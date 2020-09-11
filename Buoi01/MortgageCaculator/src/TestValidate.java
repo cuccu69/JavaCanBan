@@ -2,14 +2,21 @@ import java.util.Scanner;
 
 public class TestValidate {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-//        int intNum = sc.nextInt();
-        System.out.println("Please enter a vowel, lowercase!");
-        while (!sc.hasNext("[aeiou]")) {
-            System.out.println("That's not a vowel!");
-            sc.next();
+        Scanner inputScanner = new Scanner(System.in);
+        int number = 0;
+
+        System.out.print("Please enter an integer number: ");
+        number = inputScanner.nextInt();
+
+        if (number % 15 == 0) {
+            System.out.println("FizzBuzz");
+        } else if( number % 5 == 0) {
+            System.out.println("Fizz");
+        } else if (number % 3 == 0){
+            System.out.println("Buzz");
+        } else {
+            System.out.println(number);
         }
-        String vowel = sc.next();
-        System.out.println("Thank you! Got " + vowel);
     }
 }
+
