@@ -13,12 +13,20 @@ public class Ex04 {
             edge3 = Ex01.inputIntegerNumber("Please enter third edge: ");
         } while (edge3 > edge1);
 
-        System.out.println("Triangle perimeter: " + countTrianglePerimeter(edge1, edge2, edge3));
+        if (checkConditionCreateTriangle(edge1, edge2, edge3)) {
+            System.out.println("Triangle perimeter: " + countTrianglePerimeter(edge1, edge2, edge3));
+        } else {
+            System.out.println("Cannot create a triangle with these 3 edges");
+        }
     }
 
     public static int countTrianglePerimeter(int edge1, int edge2, int edge3) {
         int result;
 
         return result = edge1 + edge2 + edge3;
+    }
+
+    public static boolean checkConditionCreateTriangle(int longgestEdge, int edge2, int edge3) {
+        return (edge2 + edge3) > longgestEdge;
     }
 }
