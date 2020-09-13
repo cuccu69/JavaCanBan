@@ -4,14 +4,16 @@ public class Ex04 {
         int edge2 = 0;
         int edge3 = 0;
 
-        edge1 = Ex01.inputIntegerNumber("Plese enter the largest edge: ");
+        do {
+            edge1 = Ex01.inputIntegerNumber("Plese enter the largest edge: ");
+        } while (edge1 <= 0);
         do {
             edge2 = Ex01.inputIntegerNumber("Please enter second edge: ");
-        } while (edge2 > edge1);
+        } while (edge2 > edge1 || edge2 <= 0);
 
         do {
             edge3 = Ex01.inputIntegerNumber("Please enter third edge: ");
-        } while (edge3 > edge1);
+        } while (edge3 > edge1 || edge3 <= 0);
 
         if (checkConditionCreateTriangle(edge1, edge2, edge3)) {
             System.out.println("Triangle perimeter: " + countTrianglePerimeter(edge1, edge2, edge3));
