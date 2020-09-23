@@ -31,4 +31,20 @@ public class Ex04 {
     public static boolean checkConditionCreateTriangle(int longgestEdge, int edge2, int edge3) {
         return (edge2 + edge3) > longgestEdge;
     }
+
+    public static int findBiggestNumberAmongThree(int num1, int num2, int num3){
+        if (num1 > num2){
+            if (num1 > num3){
+                return num1;
+            }else {
+                return num3;
+            }
+        }else {
+            if (num2 > num3){
+                return num2;
+            }else {
+                return num3;
+            }
+        }
+    }
 }

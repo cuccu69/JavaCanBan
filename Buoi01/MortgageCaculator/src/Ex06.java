@@ -31,7 +31,7 @@ public class Ex06 {
         }else if (number % 13 == 10){
             result = "10";
         }else if (number % 13 == 11){
-            result = "Joker";
+            result = "Jack";
         }else if (number % 13 == 12){
             result = "Queen";
         }
