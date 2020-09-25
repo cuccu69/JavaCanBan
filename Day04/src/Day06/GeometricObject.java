@@ -7,11 +7,9 @@ public class GeometricObject implements Comparable<GeometricObject> {
     private boolean filled;
     private Date dateCreate;
 
-    public GeometricObject(){
+    public GeometricObject() {}
 
-    }
-
-    public GeometricObject(String color, boolean filled){
+    public GeometricObject(String color, boolean filled) {
         this.color = color;
         this.filled = filled;
     }
@@ -32,11 +30,11 @@ public class GeometricObject implements Comparable<GeometricObject> {
         this.filled = filled;
     }
 
-    public Date getDateCreate(){
+    public Date getDateCreate() {
         return dateCreate;
     }
 
-    public boolean isBigger(GeometricObject shape){
+    public boolean isBigger(GeometricObject shape) {
         return false;
     }
 

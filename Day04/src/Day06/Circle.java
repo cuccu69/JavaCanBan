@@ -56,7 +56,7 @@ public class Circle extends GeometricObject {
             } else {
                 return -1;
             }
-        }else {
+        } else {
             return -100;
         }
     }
