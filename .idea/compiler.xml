@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="Day08.Day09.main" target="13" />
+      <module name="Day08.Day09.test" target="13" />
+      <module name="Day08.main" target="13" />
+      <module name="org.example.Day08.test" target="13" />
+      <module name="org.example.Day08.test.main" target="13" />
+      <module name="org.example.Day08.test.test" target="13" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

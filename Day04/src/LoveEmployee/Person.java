@@ -1,5 +1,7 @@
 package LoveEmployee;
 
 public class Person {
-    String ab;
+    private String name;
+    private LoveEmployee.Date dateOfBirth;
+
 }

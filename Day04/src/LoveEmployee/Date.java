@@ -1,18 +1,19 @@
 package LoveEmployee;
 
 public class Date {
-    private java.util.Date today;
+    private int day;
+    private int month;
+    private int year;
 
-    public Date(){
-        today = new java.util.Date();
+    public Date(int day, int month, int year){
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Today is " + today.
-//    }
+    public int dayOfWeek(Date date){
 
-    public static void main(String[] args) {
-        System.out.println(new Date().toString());
+
+        return 0;
     }
 }
