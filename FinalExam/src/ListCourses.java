@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayCourses {
+public class ListCourses {
     private ArrayList<Course> Courses = new ArrayList<>();
 
     public void addCourse(Course newCourse){

@@ -1,11 +1,9 @@
-import java.util.ArrayList;
-
 public class Course {
     private String name;
     private int price;
     private String type;
 
-    public Course(String name, int price, String type, ArrayCourses courses) {
+    public Course(String name, int price, String type, ListCourses courses) {
         this.name = name;
         this.price = price;
         this.type = type;

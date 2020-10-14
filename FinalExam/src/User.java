@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class User {
-    private ArrayCourses allCourses;
+    private ListCourses allCourses;
     private ArrayList<Course> myCourses;
     private String id = null;
     private String password = null;
@@ -10,7 +10,7 @@ public class User {
     private boolean isLoggin;
     private Date createAccDate;
 
-    public User(ArrayCourses allCourses) {
+    public User(ListCourses allCourses) {
         this.allCourses = allCourses;
         isMember = false;
         isLoggin = false;
@@ -76,8 +76,12 @@ public class User {
             if (course instanceof OfflineCourse && ((OfflineCourse) course).isAvailable()) {
                 myCourses.add(course);
                 ((OfflineCourse) course).addStudent(this);
+                System.out.println("Buy course success");
             } else if(!(course instanceof OfflineCourse)){
                 myCourses.add(course);
+                System.out.println("Buy course success");
+            } else if (course instanceof OfflineCourse && !((OfflineCourse) course).isAvailable()){
+                System.out.println("The course is full or already started!");
             }
         } else {
             System.out.println("Please loggin or create account to buy course");
@@ -90,7 +94,7 @@ public class User {
 
     @Override
     public String toString() {
-        return (isMember() ? "ID: " + getId() + "\n" + "Created day: " + getCreateAccDate()
+        return (isMember() ? "ID: " + getId() + "\n" + "Created day: " + getCreateAccDate() + "\n"
 //                + "\n" + "\n" + "Courses bought: " + "\n" + viewMyCourses()
                 : "Wellcome to the website! Please registration to buy courses.");
     }

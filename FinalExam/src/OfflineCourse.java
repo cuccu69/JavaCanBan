@@ -1,17 +1,14 @@
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class OfflineCourse extends Course {
-    private final int NUM_OF_STUDENTS = 20;
+    private final int NUM_OF_STUDENTS = 15;
     private boolean isAvailable;
     private int studenCounting;
     private java.util.Date startDay;
     private ArrayList<User> students;
 
-    public OfflineCourse(String name, int price, String type, ArrayCourses courses, java.util.Date startDay) {
+    public OfflineCourse(String name, int price, String type, ListCourses courses, java.util.Date startDay) {
         super(name, price, type, courses);
         this.startDay = startDay;
         studenCounting = 0;
@@ -20,11 +17,11 @@ public class OfflineCourse extends Course {
     }
 
     public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+        if (getStudenCounting() < getNUM_OF_STUDENTS() && getStartDay().before(new Date())){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getStudenCounting() {
@@ -32,8 +29,8 @@ public class OfflineCourse extends Course {
     }
 
     public void addStudent(User user) {
-        this.studenCounting++;
-        students.add(user);
+            this.studenCounting++;
+            students.add(user);
     }
 
     public ArrayList<User> getStudents() {
