@@ -1,4 +1,6 @@
-public class Course {
+import java.util.Comparator;
+
+public class Course implements Comparable<Course> {
     private String name;
     private int price;
     private String type;
@@ -32,6 +34,11 @@ public class Course {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public int compareTo(Course o) {
+        return price - (o.price);
     }
 
     @Override

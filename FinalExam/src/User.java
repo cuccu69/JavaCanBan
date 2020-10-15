@@ -33,8 +33,8 @@ public class User {
         return isLoggin;
     }
 
-    public void setLoggin(boolean loggin) {
-        isLoggin = loggin;
+    public ListCourses getAllCourses() {
+        return allCourses;
     }
 
     public Date getCreateAccDate() {
@@ -64,27 +64,27 @@ public class User {
     }
 
     public void logout() {
-        setLoggin(false);
-    }
-
-    public void viewCourses() {
-        System.out.println(allCourses);
+        isLoggin = false;
     }
 
     public void buyCourse(Course course) {
         if (isLoggin) {
-            if (course instanceof OfflineCourse && ((OfflineCourse) course).isAvailable()) {
-                myCourses.add(course);
-                ((OfflineCourse) course).addStudent(this);
-                System.out.println("Buy course success");
-            } else if(!(course instanceof OfflineCourse)){
-                myCourses.add(course);
-                System.out.println("Buy course success");
-            } else if (course instanceof OfflineCourse && !((OfflineCourse) course).isAvailable()){
-                System.out.println("The course is full or already started!");
-            }
+            checkAndBuyCourse(course);
         } else {
-            System.out.println("Please loggin or create account to buy course");
+            System.out.println("Please loggin or create account to buy course!");
+        }
+    }
+
+    private void checkAndBuyCourse(Course course){
+        if (course instanceof OfflineCourse && ((OfflineCourse) course).isAvailable()) {
+            myCourses.add(course);
+            ((OfflineCourse) course).addStudent(this);
+            System.out.println("Buy course success");
+        } else if(!(course instanceof OfflineCourse)){
+            myCourses.add(course);
+            System.out.println("Buy course success");
+        } else if (course instanceof OfflineCourse && !((OfflineCourse) course).isAvailable()){
+            System.out.println("The course is full or already started!");
         }
     }
 
