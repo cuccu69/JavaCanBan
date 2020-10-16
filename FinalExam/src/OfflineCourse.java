@@ -16,21 +16,8 @@ public class OfflineCourse extends Course {
         students = new ArrayList<>();
     }
 
-    public boolean isAvailable() {
-        if (getStudenCounting() < getNUM_OF_STUDENTS() && getStartDay().before(new Date())){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public int getStudenCounting() {
         return studenCounting;
-    }
-
-    public void addStudent(User user) {
-            this.studenCounting++;
-            students.add(user);
     }
 
     public ArrayList<User> getStudents() {
@@ -47,6 +34,19 @@ public class OfflineCourse extends Course {
 
     public int getNUM_OF_STUDENTS() {
         return NUM_OF_STUDENTS;
+    }
+
+    public boolean isAvailable() {
+        if (getStudenCounting() < getNUM_OF_STUDENTS() && getStartDay().before(new Date())){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void addStudent(User user) {
+            this.studenCounting++;
+            students.add(user);
     }
 
     @Override

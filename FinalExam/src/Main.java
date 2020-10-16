@@ -17,8 +17,11 @@ public class Main {
         user3.registration("cuong3", "cuong123");
 
 //        user1.buyCourse(testCourse3);
+//        user1.getAllCourses().sortByName();
+//        System.out.println(allCourses);
 //        System.out.println(user1.getAllCourses().findCourse("ull"));
-        allCourses.sortByName();
-        System.out.println(allCourses);
+//        System.out.println(user1.getAllCourses().findCourseByPrice(100_000, true));
+//        allCourses.sortByName();
+//        System.out.println(allCourses);
     }
 }

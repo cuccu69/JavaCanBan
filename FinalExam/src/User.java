@@ -4,14 +4,16 @@ import java.util.Date;
 public class User {
     private ListCourses allCourses;
     private ArrayList<Course> myCourses;
-    private String id = null;
-    private String password = null;
+    private String id;
+    private String password;
     private boolean isMember;
     private boolean isLoggin;
     private Date createAccDate;
 
     public User(ListCourses allCourses) {
         this.allCourses = allCourses;
+        id = null;
+        password = null;
         isMember = false;
         isLoggin = false;
         myCourses = new ArrayList<Course>();
@@ -33,11 +35,11 @@ public class User {
         return isLoggin;
     }
 
-    public ListCourses getAllCourses() {
+    public ListCourses viewAllCourses() {
         return allCourses;
     }
 
-    public Date getCreateAccDate() {
+    private Date getCreateAccDate() {
         return createAccDate;
     }
 
@@ -69,22 +71,33 @@ public class User {
 
     public void buyCourse(Course course) {
         if (isLoggin) {
-            checkAndBuyCourse(course);
+            if (checkCourse(course)) {
+                myCourses.add(course);
+                System.out.println("Buy course success");
+                if (course instanceof OfflineCourse) {
+                    ((OfflineCourse) course).addStudent(this);
+                }
+            } else {
+                System.out.println("The course is full or already started!");
+            }
         } else {
             System.out.println("Please loggin or create account to buy course!");
         }
     }
 
-    private void checkAndBuyCourse(Course course){
+    private boolean checkCourse(Course course) {
         if (course instanceof OfflineCourse && ((OfflineCourse) course).isAvailable()) {
-            myCourses.add(course);
-            ((OfflineCourse) course).addStudent(this);
-            System.out.println("Buy course success");
-        } else if(!(course instanceof OfflineCourse)){
-            myCourses.add(course);
-            System.out.println("Buy course success");
-        } else if (course instanceof OfflineCourse && !((OfflineCourse) course).isAvailable()){
-            System.out.println("The course is full or already started!");
+//            myCourses.add(course);
+//            ((OfflineCourse) course).addStudent(this);
+//            System.out.println("Buy course success");
+            return true;
+        } else if (!(course instanceof OfflineCourse)) {
+//            myCourses.add(course);
+//            System.out.println("Buy course success");
+            return true;
+        } else {
+//            System.out.println("The course is full or already started!");
+            return false;
         }
     }
 

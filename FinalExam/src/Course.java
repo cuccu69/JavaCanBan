@@ -32,10 +32,6 @@ public class Course implements Comparable<Course> {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     @Override
     public int compareTo(Course o) {
         return price - (o.price);

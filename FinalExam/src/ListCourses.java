@@ -3,14 +3,14 @@ import java.util.*;
 
 import static java.util.Collections.*;
 
-public class ListCourses extends NameComparator implements Comparator<Course> {
+public class ListCourses extends NameComparator {
     private ArrayList<Course> Courses = new ArrayList<>();
 
-    public void addCourse(Course newCourse){
-        Courses.add(newCourse);
+    public void addCourse(Course Course){
+        Courses.add(Course);
     }
 
-    public ArrayList<Course> findCourse(String name){
+    public ArrayList<Course> findCourseByName(String name){
         ArrayList<Course> result = new ArrayList<>();
         for (Course items: Courses){
             if (items.getName().contains(name)){
@@ -20,21 +20,32 @@ public class ListCourses extends NameComparator implements Comparator<Course> {
         return result;
     }
 
+    public ArrayList<Course> findCourseByPrice(int price, boolean isHigher){
+        ArrayList<Course> result = new ArrayList<>();
+        for (Course items: Courses){
+            if (isHigher){
+                if (items.getPrice() > price){
+                    result.add(items);
+                }
+            }else {
+                if (items.getPrice() <= price){
+                    result.add(items);
+                }
+            }
+        }
+        return result;
+    }
+
     public void sortByPrice(){
-        Collections.sort(Courses);
+        Courses.sort(Course::compareTo);
     }
 
     public void sortByName(){
-        Collections.sort(Courses, new NameComparator());
+        Courses.sort(new NameComparator());
     }
 
     @Override
     public String toString() {
         return Courses.toString();
-    }
-
-    @Override
-    public int compare(Course o1, Course o2) {
-        return o1.getName().compareTo(o2.getName());
     }
 }
