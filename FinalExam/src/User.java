@@ -87,16 +87,10 @@ public class User {
 
     private boolean checkCourse(Course course) {
         if (course instanceof OfflineCourse && ((OfflineCourse) course).isAvailable()) {
-//            myCourses.add(course);
-//            ((OfflineCourse) course).addStudent(this);
-//            System.out.println("Buy course success");
             return true;
         } else if (!(course instanceof OfflineCourse)) {
-//            myCourses.add(course);
-//            System.out.println("Buy course success");
             return true;
         } else {
-//            System.out.println("The course is full or already started!");
             return false;
         }
     }
