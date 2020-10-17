@@ -3,7 +3,7 @@ import java.util.*;
 
 import static java.util.Collections.*;
 
-public class ListCourses extends NameComparator {
+public class ListCourses {
     private ArrayList<Course> Courses = new ArrayList<>();
 
     public void addCourse(Course Course){
